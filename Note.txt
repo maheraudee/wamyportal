@@ -1,0 +1,28 @@
+?????? ?????????
+-----------------------------------
+INSERT INTO `employees`(`empno`, `name`, `email`, `salary`, `department`, `section`, `startdate`, `qualification`, `job`, `mobile`, `cardid`, `nationality`, `status`, `created_at`, `updated_at`) 
+SELECT 
+ `emp_no`, `emp_nm`, `e_mail`, `total_sal`, `hirch_nm`, `hirchy_prnt_nm`, `start_date`, `qlfction_lst_nm`, `emp_job_nm`, `mobile_no`, `card_no`, `nat_nm`,1, `created_at`, `updated_at`
+FROM oldportal.empdatas
+------------------------------------------
+INSERT INTO `savings`(
+    `id`, `empno`, `participationType`, `datePremium`, `premium`, `contribute`, `signature`, `agree`, `userEntry`, `status`, `created_at`,`updated_at`) 
+    SELECT 
+	`id`, `empid`, `participationType`, `datePremium`, `newpremium`, `contribute`, `signature`, `agree`,1,1, `created_at`, `updated_at` 
+FROM oldportal.savings
+------------------------------------------
+INSERT INTO `boxorders`(`empno`, `orderTyp`, `installmentPeriod`, `rate`, `hr`, `box`, `purchasingValue`, `orderdesc`, `statusid`, `userEntry`,  `created_at`, `updated_at`) 
+SELECT 
+ `empid`,`reqType`, `installmentPeriod`, `rate`,0,0, `purchasingValue`,descDevice + descFurniture, `fstatus`,1, `created_at`, `updated_at`
+FROM oldportal.boxorders 
+
+------------------------
+
+INSERT INTO `boxordersanalyses`(`id`, `boxorders_id`, `purchasingValue`, `empsalary`,`empremiumBox`, `empendService`, `empbalancebox`, 
+`empdebtFurniture`, `empdebtCar`, `empanothSponosr`, `sprno`, `sprsalary`,`sprendService`, `sprbalancebox`,
+`evaluation`, `reson`, `userEntry`, `lastPurchasingValue`, `salesPrice`, `monthlyInstallment`, `dateFirstInstallment`, `dateLastInstallment`, `lastUser`, `status`,  `created_at`, `updated_at`) 
+SELECT 
+`id`, `boxorders_id`,`purchasingValue`, `salaryEmp`, `premiumBox`, `endServiceEmp`,`balanceboxEmp`,
+ `debtFurnitureEmp`,`debtCarEmp`,`anothSponosrEmp`, `sprId`,`salarySpr`,`endServiceSpr`, `balanceboxSpr`,
+ `evaluation`, `reson`, `userEntry`, `lastPurchasingValue`, `salesPrice`,`monthlyInstallment`,`dateFirstInstallment`, `dateLastInstallment`,    `lastUser`, `status`, `created_at`, `updated_at`
+FROM oldportal.boxordersanalyses 

@@ -1,0 +1,13 @@
+.contract-title{
+    margin-bottom: 25px;
+    text-align: center;
+    /* font-weight: bold; */
+}
+.mylable{
+    font-size: 16px;
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: bolder;
+}
+.mylable-form{
+    font-size: 14px;
+}

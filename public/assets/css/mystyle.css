@@ -1,0 +1,7 @@
+@font-face {
+    font-family: hedrfont;
+    src: url(../fonts/hanimation-regular.ttf);
+}
+body{
+    font-family: hedrfont !important;
+}
